@@ -13,21 +13,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
     
+    var leftDiceNumber = 1
+    var rightDiceNumber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
    //  WHO             What    Value
-        diceImageView1.image = #imageLiteral(resourceName: "DiceSix")
-        diceImageView2.image = #imageLiteral(resourceName: "DiceTwo")
+       
         
     }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         // Who         what    Value
-        diceImageView2.image = #imageLiteral(resourceName: "DiceFour")
-        diceImageView1.image = #imageLiteral(resourceName: "DiceFive")
-        print("Button got tapped")
-    }
+    //creating an Array                             //choosing which image literal you want the code to show
+        diceImageView1.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][leftDiceNumber]
+        diceImageView2.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][rightDiceNumber]
+        leftDiceNumber = leftDiceNumber + 1
+        rightDiceNumber = rightDiceNumber + 1
+        print("You just pressed me")
+       }
     
     
 }
+
 
